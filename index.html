@@ -22,7 +22,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
 
-    <title>Test</title>
+    <title>Portofolio web</title>
   </head>
   <body id="home">
     <!-- Navbar -->
@@ -195,7 +195,7 @@
         </div>
         <div class="row justify-content-center mb-3">
           <div class="col-md-6">
-            <form>
+            <form name="Nabil-Contact-Form">
               <div class="mb-3">
                 <label for="Name" class="form-label">Nama Lengkap</label>
                 <input
@@ -203,6 +203,7 @@
                   class="form-control"
                   id="name"
                   aria-describedby="name"
+                  name="nama"
                 />
               </div>
               <div class="mb-3">
@@ -212,11 +213,17 @@
                   class="form-control"
                   id="Email"
                   aria-describedby="email"
+                  name="email"
                 />
               </div>
               <div class="mb-3">
                 <label for="Pesan" class="form-label">Pesan</label>
-                <textarea class="form-control" id="Pesan" rows="3"></textarea>
+                <textarea
+                  class="form-control"
+                  id="Pesan"
+                  rows="3"
+                  name="pesan"
+                ></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Kirim</button>
             </form>
@@ -250,5 +257,18 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- sistem Contact Form -->
+    <script>
+      const scriptURL = "<SCRIPT URL>";
+      const form = document.forms["Nabil-Contact-Form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
